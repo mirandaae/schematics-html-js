@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multi-Form Example</title>
+    <script>
+        function showNextForm(currentForm, nextForm) {
+            document.getElementById(nextForm).style.display = 'block';
+        }
+
+        function showFormBasedOnSelection() {
+            var selectedValue = document.querySelector('input[name="options"]:checked').value;
+            if (selectedValue === 'option1') {
+                document.getElementById('form3').style.display = 'block';
+            } else if (selectedValue === 'option2') {
+                document.getElementById('form4').style.display = 'block';
+            }
+        }
+
+        function showFormBasedOnSelection2() {
+            var selectedValue = document.querySelector('input[name="options2"]:checked').value;
+            if (selectedValue === 'option1') {
+                document.getElementById('form8').style.display = 'block';
+            } else if (selectedValue === 'option2') {
+                document.getElementById('form9').style.display = 'block';
+            }
+        }
+
+        function showFinalMessage() {
+            document.getElementById('finalMessage').style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <!-- Form 1 -->
+    <form id="form1" onsubmit="showNextForm('form1', 'form2'); return false;">
+        <h2>Prerequisites checklist</h2>
+        <label><input type="checkbox" name="option1"> Option 1</label><br>
+        <label><input type="checkbox" name="option2"> Option 2</label><br>
+        <label><input type="checkbox" name="option3"> Option 3</label><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- Form 2 -->
+    <form id="form2" style="display:none;" onsubmit="showFormBasedOnSelection(); return false;">
+        <h2>Is there any changes?</h2>
+        <label><input type="radio" name="options" value="option1"> Yes</label><br>
+        <label><input type="radio" name="options" value="option2"> No</label><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- Form 3 -->
+    <form id="form3" style="display:none;" onsubmit="showNextForm('form3', 'form5'); return false;">
+        <h2>Contact Support</h2>
+        <p>Contact admin support for further assistance</p>
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- Form 4 -->
+    <form id="form4" style="display:none;" onsubmit="showNextForm('form4', 'form5'); return false;">
+        <h2>Use this knowledge base</h2>
+        <p>use this <a href=".">Article</a> </p>
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- Form 5 -->
+    <form id="form5" style="display:none;" onsubmit="showNextForm('form5', 'form7'); return false;">
+        <h2>Here is the sql </h2>
+        <code>SELECT * from table</code>
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- Form 7 -->
+    <form id="form7" style="display:none;" onsubmit="showFormBasedOnSelection2(); return false;">
+        <h2>Based on the Article, Does it Fix the Issue?</h2>
+        <label><input type="radio" name="options2" value="option1"> Yes</label><br>
+        <label><input type="radio" name="options2" value="option2"> No</label><br>
+        <input type="submit" value="Next">
+    </form> 
+
+    <!-- Form 8 -->
+    <form id="form8" style="display:none;" onsubmit="showFinalMessage(); return false;">
+        <h2>Great</h2>
+        <p>update the client.</p>
+        <input type="submit" value="Next">
+    </form> 
+
+    <!-- Form 9 -->
+    <form id="form9" style="display:none;" onsubmit="showFinalMessage(); return false;">
+        <h2>Form 9</h2>
+        <h2>Reach out to Support</h2>
+        <p>Kindly reach out to a senior specialist or SME for further troubleshooting.</p>
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- Final Message -->
+    <div id="finalMessage" style="display:none;">
+        <h2>Thank you for completing the troubleshooting steps!</h2>
+        <p>Made by github/mirandaae for Talent Team & Module</p>
+    </div>
+</body>
+</html>
